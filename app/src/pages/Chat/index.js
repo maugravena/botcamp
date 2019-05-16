@@ -7,7 +7,7 @@ import LogoutBotcamp from '../../components/LogoutBotcamp';
 import InputMessage from '../../components/InputMessage';
 import ChatWrapper from '../../components/ChatWrapper';
 import MessageUser from '../../components/MessageUser'
-import MessagesWrapper from '../../components/MessageWrapper'
+import MessagesWrapper from '../../components/MessagesWrapper'
 
 const Chat = () => (
   <ChatWrapper>
