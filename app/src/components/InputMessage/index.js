@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-const InputMessage = styled.input.attrs({type: 'text', placeholder: 'Diz aí...'})`
+const InputMessage = styled.input.attrs({
+  type: 'text', 
+  placeholder: 'Diz aí...',
+})`
   width: 100%;
   height: 50px;
   border: none;

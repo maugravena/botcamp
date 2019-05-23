@@ -8,10 +8,6 @@ const MessageUser = styled.div`
   width: 68%;
   margin: 0 16px 20px auto;
   border-radius: 10px 0 10px 10px;
-
-  &:first-child {
-    margin-top: 50px;
-  }
 `
 
 export default MessageUser
