@@ -9,13 +9,18 @@ import ChatWrapper from '../../components/ChatWrapper'
 import MessagesWrapper from '../../components/MessagesWrapper'
 
 class Chat extends Component {
-  state = {
-    messages: [
-      // {
-      //   id: Date.now(),
-      //   content: '!cpf',
-      // },
-    ]
+  constructor(props) {
+    super(props)
+
+    this.handleKeyUp = this.handleKeyUp.bind(this)
+    this.state = {
+      messages: [
+        // {
+        //   id: Date.now(),
+        //   content: '!cpf',
+        // },
+      ]
+    }
   }
 
   handleKeyUp(event) {
@@ -43,7 +48,7 @@ class Chat extends Component {
           </Link>
         </HeaderBotcamp>
         <MessagesWrapper messages={this.state.messages}/>
-        <InputMessage onKeyUp={this.handleKeyUp.bind(this)}/>
+        <InputMessage onKeyUp={this.handleKeyUp}/>
       </ChatWrapper>
     )
   }
