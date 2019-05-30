@@ -5,6 +5,15 @@ import MessageBotcamp from '../../components/MessageBotcamp'
 
 import robot from './../../img/robot.png'
 
+function MessageRobot(props) {
+  return (
+    <Container>
+      <Icon />
+      <Message>{props.children}</Message>
+    </Container>
+  )
+}
+
 const Container = styled.div`
   display: flex;
   float: left;
@@ -31,14 +40,5 @@ const Message = styled(MessageBotcamp)`
   background-color: rgba(255, 255, 255, 0.83);
   margin-top: 0;
 `
-
-function MessageRobot(props) {
-  return (
-    <Container>
-      <Icon />
-      <Message>{props.children}</Message>
-    </Container>
-  )
-}
 
 export default MessageRobot

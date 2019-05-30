@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import HeaderBotcamp from '../../components/HeaderBotcamp'
 import LogoBotcamp from '../../components/LogoBotcamp'
@@ -8,50 +8,55 @@ import InputMessage from '../../components/InputMessage'
 import ChatWrapper from '../../components/ChatWrapper'
 import MessagesWrapper from '../../components/MessagesWrapper'
 
-class Chat extends Component {
-  constructor(props) {
-    super(props)
+function Chat() {
+  const [listMessages, setListMessages] = useState([])
+  const [message, setMessage] = useState({})
 
-    this.handleKeyUp = this.handleKeyUp.bind(this)
-    this.state = {
-      messages: [
-        // {
-        //   id: Date.now(),
-        //   content: '!cpf',
-        // },
-      ]
-    }
-  }
-
-  handleKeyUp(event) {
-    const newElement = {
+  function handleKeyUp(event) {
+    setMessage({
       id: Date.now(),
       content: event.target.value
-    }
+    })
 
     if (event.keyCode === 13 && event.target.value !== '') {
-      this.setState({
-        messages: [...this.state.messages, newElement]
-      })
+      setListMessages([...listMessages, message])
 
       event.target.value = ''
     }
   }
-  
-  render() {
-    return (
-      <ChatWrapper>
-        <HeaderBotcamp>
-          <LogoBotcamp smaller/>
-          <Link to='/'>
-            <LogoutBotcamp />
-          </Link>
-        </HeaderBotcamp>
-        <MessagesWrapper messages={this.state.messages}/>
-        <InputMessage onKeyUp={this.handleKeyUp}/>
-      </ChatWrapper>
-    )
-  }
+
+  return (
+    <ChatWrapper>
+      <HeaderBotcamp>
+        <LogoBotcamp smaller/>
+        <Link to='/'>
+          <LogoutBotcamp />
+        </Link>
+      </HeaderBotcamp>
+      <MessagesWrapper messages={listMessages}/>
+      <InputMessage onKeyUp={handleKeyUp}/>
+    </ChatWrapper>
+  )
 }
+
+// class Chat extends Component {
+//   constructor(props) {
+//     super(props)
+
+//     this.handleKeyUp = this.handleKeyUp.bind(this)
+//     this.state = {
+//       messages: [
+//         // {
+//         //   id: Date.now(),
+//         //   content: '!cpf',
+//         // },
+//       ]
+//     }
+//   }
+
+  
+//   render() {
+//   }
+// }
 
 export default Chat
